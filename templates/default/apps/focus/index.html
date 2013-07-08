@@ -110,7 +110,7 @@
                             D.removeClass('.loading', 'hidden')
                         }
                         if (D.hasClass(item, 'phone-box')) {
-                            var phoneUrl = emulateUrl + encodeURIComponent(showUrl);
+                            var phoneUrl = emulateUrl + '?url=' + encodeURIComponent(showUrl);
                             self.ChangeUrl(showList, phoneUrl)
                         } else {
                             self.ChangeUrl(showList, showUrl)

@@ -33,10 +33,13 @@ exports.install = function (server, manage) {
     }, function (req, res, next) {
         res.render('apps/focus/index.html')
     });
-    server.get('/focus/proxy/:mode/:url', function (req, res, next) {
+    server.get('/focus/proxy/:mode', function (req, res, next) {
         var ua = UserAgent[req.params.mode] || req.get('User-Agent');
         res.locals.ua = ua;
-        res.locals.url = decodeURIComponent(req.params.url);
+        res.locals.url = decodeURIComponent(req.query.url);
+        if(!res.locals.url){
+            res.locals.url = 'http://www.tmall.com';
+        }
         next();
     }, function (req, res, next) {
         res.set({
@@ -51,7 +54,7 @@ exports.install = function (server, manage) {
             }).pipe(res);
         }
         catch(e){
-            res.end('«Î÷ÿ ‘£°');
+            res.end('ËØ∑ÈáçËØïÔºÅ');
         }
         
     });
