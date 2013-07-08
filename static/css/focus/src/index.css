@@ -41,6 +41,7 @@ body {
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
     font-size: 18px !important;
     line-height: 32px !important;
+    letter-spacing: 2px;
     font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
@@ -165,7 +166,7 @@ body {
 
 .type-box {
     z-index: 10;
-    padding: 5px 0;
+    padding-top:20px;
     text-align: center;
 }
 
@@ -319,7 +320,7 @@ body {
 }
 
 .mac-box .item {
-    /* 0™6¡§0†30“4150…80™6¡Ý„0²40…10ˆ2 */
+    /* ï¿½0ï¿½6ï¿½ï¿½ï¿½0ï¿½3ï¿½0ï¿½415ï¿½0ï¿½8ï¿½0ï¿½6ï¿½Ý„0ï¿½4ï¿½0ï¿½1ï¿½0ï¿½2 */
     height: 568px;
     width: 948px;
     background: url(http://img03.taobaocdn.com/tps/i3/T1U.tkFkFbXXckxCEg-948-568.jpg) no-repeat;
