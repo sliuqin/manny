@@ -17,6 +17,12 @@ var UserAgent = {
     'NokiaN97': 'Mozilla/5.0 (SymbianOS/9.4; Series60/5.0 NokiaN97-1/20.0.019; Profile/MIDP-2.1 Configuration/CLDC-1.1) AppleWebKit/525 (KHTML, like Gecko) BrowserNG/7.1.18124',
     'WindowsPhone': 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; HTC; Titan)'
 }
+
+function ValidUrl(str) {
+    var regexp = /(((http|ftp|https):\/\/)|www\.)[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#!]*[\w\-\@?^=%&amp;/~\+#])?/
+    return regexp.test(str);
+}
+
 exports.install = function (server, manage) {
     'use strict';
 
@@ -37,25 +43,32 @@ exports.install = function (server, manage) {
         var ua = UserAgent[req.params.mode] || req.get('User-Agent');
         res.locals.ua = ua;
         res.locals.url = decodeURIComponent(req.query.url);
-        if(!res.locals.url){
+        if (!res.locals.url) {
             res.locals.url = 'http://www.tmall.com';
         }
+        next();
+    }, function (req, res, next) {
         next();
     }, function (req, res, next) {
         res.set({
             'Content-Type': 'text/html;charset=utf-8'
         });
-        try{
+        try {
             request.get(res.locals.url, {
                 headers: {
                     'User-Agent': res.locals.ua
                 },
-                timeout:2000
+                timeout: 2000
+            },function (err) {
+                if (!err) {
+                    return;
+                }
+                res.end('无法加载：' + res.locals.url);
             }).pipe(res);
         }
-        catch(e){
+        catch (e) {
             res.end('请重试！');
         }
-        
+
     });
 }
