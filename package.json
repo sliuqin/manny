@@ -38,7 +38,8 @@
         "formage": "",
         "colorful": "",
         "robotskirt": "2.7.1",
-        "send":""
+        "send":"",
+        "connect-redis":""
     },
     "engines": {
         "node": ">= 0.8.1"

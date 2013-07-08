@@ -11,6 +11,7 @@ var fs = require('fs');
 // allowing it to inherit from express.session.Store
 var _ = require('underscore');
 var settings = require('./settings');
+var RedisStore = require('connect-redis')(express);
 
 function Manage() {
     'use strict';
@@ -74,7 +75,7 @@ Manage.prototype.configure = function () {
         this.use(express.cookieParser('r/W?3=2.7Y2{,{9:]/}]439/2.{:4377*@3yX8(a3o3/o'));
         var session = express.session({
             secret: '2,@67G;=@*4:32+&]<))82787ww72H=o/((C}39G]+82C',
-            //store: new MongoStore({db: settings.DATABASES['default'].DB}),
+            store: new RedisStore (),
             key: 'session.id',
             cookie: { domain: '.' + manage.server.settings.DOMAIN }
         });
