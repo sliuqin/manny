@@ -121,6 +121,7 @@
             SideBar: function(){
                 setTimeout(function(){
                     D.addClass(config.sideBar,'sidebar-close')
+                    config.sideNav.innerHTML = '&gt;'
                 },3000)
                 E.on(config.sideNav,'click tap',function(){
                     if(D.hasClass(config.sideBar,'sidebar-close')){
