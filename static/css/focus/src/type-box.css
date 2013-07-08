@@ -1,0 +1,28 @@
+.type-box .phone {
+    background: url(https://i.alipayobjects.com/e/201307/fYua0ogTf.png) no-repeat;
+    width: auto;
+    height: auto;
+}
+
+.type-box .pad {
+    background: url(https://i.alipayobjects.com/e/201307/fYua1RExL.png) no-repeat;
+    width: auto;
+    height: auto;
+}
+
+.type-box .mac {
+    background: url(https://i.alipayobjects.com/e/201307/fZ4WYAOpr.png) no-repeat;
+    width: 284px;
+    height: 162px;
+}
+
+.type-box .type:hover {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform: scale(1);
+    background-color: #484984;
+}
+
+.type-box .select {
+    background-color: #484984;
+}

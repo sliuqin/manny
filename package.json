@@ -1,0 +1,47 @@
+{
+    "name": "manny",
+    "version": "0.1.0",
+    "description": "cloud app for peaches",
+    "keywords": [
+        "css",
+        "sprite",
+        "background"
+    ],
+    "maintainers": [
+        {
+            "name": "liuqin.sheng",
+            "email": "sliuqin@gmail.com",
+            "web": "https://github.com/sliuqin"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/sliuqin/manny"
+        }
+    ],
+    "dependencies": {
+        "peaches": ">0.2.0",
+        "express": ">3.0.0",
+        "moment": "~2.0.0",
+        "mongoose":">2.7.2",
+        "consolidate": "0.3.1",
+        "swig": "~0.13.2",
+        "underscore": "~1.4.2",
+        "tracer": ">0.5.0",
+        "nodemailer": "0.3.21",
+        "request": ">2.9.203",
+        "forEachAsync": "2.2.0",
+        "gift": "~0.0.5",
+        "cssbeautify": "~0.3.0",
+        "walk": "",
+        "formage": "",
+        "colorful": "",
+        "robotskirt": "2.7.1",
+        "send":""
+    },
+    "engines": {
+        "node": ">= 0.8.1"
+    },
+    "main": "manage.js"
+}

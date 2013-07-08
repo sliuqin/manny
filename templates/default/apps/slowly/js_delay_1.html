@@ -1,0 +1,14 @@
+{% extends 'layout/slowly.html' %}
+
+{% block style%}
+{% endblock %}
+{% block content %}
+<ul>
+    <li>{{ settings.uri.slowlyStaticServer }}3000/script.js</li>
+</ul>
+页面底部加载脚本，用时3秒，页面能给最快的渲染，不受脚本加载的影响。
+{% endblock %}
+{% block script %}
+<script type="text/javascript" src="{{ settings.uri.slowlyStaticServer }}3000/script.js">
+</script>
+{% endblock %}        

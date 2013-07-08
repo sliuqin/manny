@@ -1,0 +1,9 @@
+{% extends 'layout/default.html' %}
+{% block content %}
+<form action="{{settings.uri.cloudServer}}api/" method="POST">
+    <textarea rows="20" cols="100" name="styleText">
+
+    </textarea>
+    <input type="submit" value="submit"/>
+</form>
+{%endblock%}

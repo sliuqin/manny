@@ -1,0 +1,38 @@
+{% extends 'layout/slowly.html' %}
+
+{% block style%}
+<script type="text/javascript">
+    window._to = { start: new Date() };
+    console.log(window._to)
+</script>
+<!--<script src="{{ settings.uri.slowlyStaticServer }}0/tracker.js" ></script>-->
+<script charset="utf-8"
+        src="{{ settings.uri.slowlyStaticServer }}0/tracker.js"></script>
+{% endblock %}
+{% block content %}
+<ul>
+    <li>{{ settings.uri.slowlyStaticServer }}1000/script.js</li>
+    <li>{{ settings.uri.slowlyStaticServer }}3000/script_1.js</li>
+</ul>
+<p>与 <a href="/slowly/js_delay_2" target="_blank">js_delay_2</a> 配合看和有意思：</p>
+
+页面底部加载脚本，分别用时 3秒 和 1秒， 脚本间相互受到影响。
+<br/>
+<ul>
+    <li>
+        1. script_1.js 先加载完，但是不执行，需要等到 script.js 加载完成之后再执行。
+    </li>
+    <li>
+        2. 脚本的执行顺序一样是按照书写的位置，script.js中的内容先执行。
+    </li>
+</ul>
+{% endblock %}
+{% block script %}
+<script>
+    Tracker.click('xx')
+</script>
+<script type="text/javascript" src="{{ settings.uri.slowlyStaticServer }}0/script.js" defer="defer">
+</script>
+<script type="text/javascript" src="{{ settings.uri.slowlyStaticServer }}0/script_1.js" defer="defer">
+</script>
+{% endblock %}

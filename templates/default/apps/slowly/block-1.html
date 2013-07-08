@@ -1,0 +1,17 @@
+{% extends 'layout/slowly.html' %}
+
+{% block style%}
+{% endblock %}
+{% block content %}
+<a href="#">link</a>
+{% endblock %}
+
+{% block script%}
+<script type="text/javascript" defer="defer">
+    setTimeout(function () {
+        for (var i = 0; i < 100000; i++) {
+            console.log(i);
+        }
+    }, 250);
+</script>
+{% endblock%}

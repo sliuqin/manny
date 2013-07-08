@@ -1,0 +1,7 @@
+.pure-menu.main-menu{
+    background-color: rgba(46,46,46,0.35);
+}
+
+.pure-menu.main-menu .pure-menu-selected a{
+    color: #d3d3d3;
+}

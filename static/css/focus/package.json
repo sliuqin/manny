@@ -1,0 +1,8 @@
+{
+    "retina": true,
+    "output": {
+        "./index.css": [
+            "./src/type-box.css"
+        ]
+    }
+}

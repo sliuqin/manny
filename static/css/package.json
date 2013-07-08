@@ -1,0 +1,10 @@
+{
+    "retina": true,
+    "output": {
+        "./dist/peaches.css": [
+            "./src/pure-min.0.2.0.css",
+            "./src/layout.css"
+        ]
+    }
+
+}

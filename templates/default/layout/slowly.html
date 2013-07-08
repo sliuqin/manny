@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Peaches:追求简单、自然的CSS书写方式</title>
+    <meta name="keywords" content="css,css背景图片,背景图片合并,css sprite,background-image">
+    <meta name="description"
+          content="Peaches 是一个CSS编译工具，用于自动合并background-image并更新background-position。Peaches 追求简单、自然的CSS书写方式。">
+    <meta name="baidu-site-verification" content="LpQuY90nx8G4XAnL"/>
+
+    {% block head %}
+    {% endblock %}
+    {% block style%}
+    {% endblock %}
+</head>
+
+<!--[if lt IE 7]>
+<body class="ie6"><![endif]--><!--[if IE 7]>
+<body class="ie7"><![endif]--><!--[if IE 8]>
+<body class="ie8"><![endif]--><!--[if !IE]><!-->
+<body><!--<![endif]-->
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
+<div class="footer pure-u-1">
+    {# Peaches.io版权所有 浙ICP备12035845号#}
+</div>
+
+
+{% block script%}
+
+{% endblock %}
+
+{% if settings.env == 'production'%}
+<script type="text/javascript">
+
+    var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F727a820d5a725ff802b76da348d30404' type='text/javascript'%3E%3C/script%3E"));
+</script>
+{% endif %}
+</body>
+</html>

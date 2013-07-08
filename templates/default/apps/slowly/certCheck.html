@@ -1,0 +1,377 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="GBK" />
+    <title>登录中心 － 支付宝</title>
+
+
+    <link rel="icon" href="https://img.alipay.com/common/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="https://img.alipay.com/common/favicon/favicon.ico" type="image/x-icon" />        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <!-- CMS:支付宝全站/监控埋点/全站页面效率统计开始:alipay/tracker/tracker_time.vm --><meta name="ABTest" content="" />
+
+    <script type="text/javascript">
+        window._to = { start: new Date() };
+    </script>
+
+
+    <script charset="utf-8" src="https://a.alipayobjects.com/ar/??alipay.light.base-1.1.js,alipay.tracker-1.11.js"></script>
+
+    <!-- CMS:支付宝全站/监控埋点/全站页面效率统计结束:alipay/tracker/tracker_time.vm -->    <!-- CMS:登录中心/登录/头部静态资源入口开始:authcenter/login/certCheck_static.vm --><!-- CMS:登录中心/登录/头部静态资源入口结束:authcenter/login/certCheck_static.vm -->
+
+    <style type="text/css">
+            /**
+             * 浏览器重置
+             */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            color:#000;background:#fff;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        body,button,input,select,textarea{
+            font:12px/1.5 tahoma,arial,"Hiragino Sans GB",\5b8b\4f53;
+        }
+            /* 去除默认边框 */
+        fieldset,img{
+            border:0;
+        }
+            /* 清理浮动 */
+        .fn-clear:after {
+            visibility:hidden;
+            display:block;
+            font-size:0;
+            content:" ";
+            clear:both;
+            height:0;
+        }
+        .fn-clear {
+            zoom:1; /* for IE6 IE7 */
+        }
+            /* 隐藏, 通常用来与 JS 配合 */
+        body .fn-hide {
+            display:none;
+        }
+            /**
+             * 页面样式
+             */
+        .header,#content{
+            width: 950px;
+            margin: 10px auto;
+        }
+        .header{
+            margin-top: 20px;
+            overflow: hidden;
+            zoom: 1;
+        }
+        .header-title {
+            float: left;
+        }
+        .header-title #logo {
+            float: left;
+        }
+        .header-title h2 {
+            float: left;
+            font-size: 16px;
+            font-weight: normal;
+            font-family: 'Microsoft YaHei';
+            color: #666;
+            line-height: 16px;
+            margin: 15px 0 0 10px;
+            padding: 0px 0 0 10px;
+            border-left: 1px solid #888;
+        }
+        #footer {
+            margin-top: 40px;
+            text-align: center;
+            border-top: 1px solid #f5f5f5;
+            padding-top: 20px;
+        }
+        #footer .foot-nav a {
+            margin:0 7px;
+        }
+        .copyright {
+            color: #808080;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .server{
+            text-align: center;
+            color: #fff;
+        }
+        .p-notice h3 {font-size: 14px; font-weight: bold;}
+            /**
+             * 响应式布局
+             */
+            /** 小于 320px **/
+        @media only screen and (max-width:320px) {
+            .header,#content{
+                width: 90%;
+            }
+        }
+            /** 大于 768px ，小于 949px **/
+        @media only screen and (min-width: 321px) and (max-width:949px) {
+            .header,#content{
+                width: 94%;
+            }
+        }
+    </style>			<script type="text/javascript">
+    AralePreload = [];
+    var AP = AP || {};
+    AP.PageVar = {
+        app_domain: "https://auth.alipay.com",
+        personal_domain:"https://lab.alipay.com",
+        personalprod_domain:"",
+        mipgw_domain:"",
+        ccrprod_domain:""
+    }
+</script>
+</head>
+
+<body class="blank">
+<div id="container">
+<!-- CMS:支付宝全站/监控埋点/um开始:alipay/tracker/um.vm -->
+
+
+
+<!-- CMS:支付宝全站/监控埋点/um结束:alipay/tracker/um.vm -->
+
+<!-- CMS:全站顶部公告开始:alipay/notice/headNotice.vm --><!-- CMS:全站顶部公告结束:alipay/notice/headNotice.vm -->
+<div class="header">
+    <div class="header-title">
+        <h1 id="logo">
+            <a href="https://www.alipay.com" title="支付宝首页" target="_self">
+                <img src="https://img.alipay.com/pa/img/home/logo-alipay-t.png" width="96" height="37" alt="支付宝" seed="auth-alipayLogo"/>
+            </a>
+        </h1>
+        <h2>登录</h2>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    var umCounter = 0, certCounter = 0, umStatus = false, certStatus = false;
+    execute = function() {
+        if(window.um && !um.getStatus() && !umStatus && umCounter++ < 100) {
+            setTimeout(execute, 50);
+        } else {
+            umStatus = true;
+            certStatus && submit();
+        };
+        if(window.light && light.page && light.page.needCheckScProd > light.page.checkedScProd && !certStatus && certCounter++ < 120) {
+            setTimeout(execute, 50);
+        } else {
+            certStatus = true;
+            umStatus && submit();
+        };
+    };
+    function submit(){
+        setTimeout(function(){
+            if(light.node){
+                var tips = light.node('#content .p-notice h3'), klass = 'fn-hide';
+                tips.item(0).addClass(klass);
+                tips.item(1).removeClass(klass);
+            };
+            document.getElementById("J-submit-cert-check").onclick = function(){
+                var button = this;
+                setTimeout(function(){
+                    button.disabled = true;
+                },50);
+                if(typeof Tracker != 'undefined'){
+                    Tracker.click('auth-certCheck-submitBtn');
+                }
+            };
+        },3000);
+        document.getElementById("LoginForm").submit();
+    }
+
+</script>
+
+<script type="text/javascript">
+    setTimeout(function() {
+        if(window.IS_READY) {
+            light.page.checkSc();
+            execute();
+        } else {
+            setTimeout(arguments.callee, 20);
+        }
+    },20);
+</script>
+
+<form name="LoginForm" id="LoginForm" method="post"  action="https://auth.alipay.com/login/certCheck.htm" >
+    <input type="hidden" name="goto" value=""/>
+    <input type="hidden" name="redirectType" value=""/>
+    <input type="hidden" name="loginScene" value="" />
+
+
+    <style type="text/css" media="screen">
+        .p-notice{
+            background-color:#E5F5FF;
+            border:1px solid #CBD7E3;
+            color:#333333;
+            margin-top:13px;
+            padding:20px 20px 30px;
+        }
+        .p-notice img{
+            float:left;
+            padding-right:20px;
+        }
+        .p-notice h3{
+            line-height:32px;
+        }
+        .alieditContainer{
+            visibility: hidden;
+        }
+    </style>
+    <div id="content">
+        <div class="p-notice">
+            <img src="https://img.alipay.com/img/icon/icon_tdwaiting.gif" alt="检测中" />
+            <h3>正在检测您的账户安全状态，请稍候……</h3>
+            <h3 class="fn-hide">正在提交数据… 如果没有进入下一个页面，请点<input type="submit" value="这里" id="J-submit-cert-check">继续。</h3>
+        </div>
+        <div class="fn-hide">
+            <input type="hidden" id="_seaside_gogo_" name="_seaside_gogo_" value="" />
+            <input type="hidden" id="_seaside_gogo_p" name="_seaside_gogo_p" value="" />
+            <input type="hidden" name="REMOTE_PCID_NAME" value="_seaside_gogo_pcid" />
+            <input type="hidden" name="_seaside_gogo_pcid" value="" />
+
+            <input type="hidden" name="is_sign" value="Y"/>
+            <textarea name="SignedData" rows="5" cols="50"></textarea>
+            <input type="hidden" name="real_sn" value="" />
+
+            <input name="certCmdOutput" type="hidden" value="" />
+            <input name="certfg" type="hidden" value="" />
+            <input name="goto" type="hidden" value="" >
+        </div>
+        <span id="pwd_container" class="alieditContainer"></span>
+    </div>
+
+    <script type="text/javascript" charset="utf-8" id="iTrusPTAScript" src="https://a.alipayobjects.com/build/js/sc/itruscert.js?t=20110809"></script>
+
+
+
+    <script type="text/javascript" charset="utf-8" src="https://a.alipayobjects.com/static/ar/??alipay.light.base-1.2.js,alipay.light.page-1.1-sizzle.js,alipay.security.base-1.5.js,alipay.security.edit-1.0.js,alipay.security.cert-1.5.js,alipay.security.otp-1.0.js,alipay.security.mobile-1.1.js,alipay.security.core-1.1.js"></script>
+    <script>
+        light.has('page/products') || light.register('page/products');
+        light.has('page/scProducts') || light.register('page/scProducts', light, []);
+    </script>
+
+    <script type="text/javascript">
+        (function(s){
+            var form = light.node('form'),
+                    machineSns = "",
+                    sn = "",
+                    randomValue = "",
+                    machineIssuer = "",
+                    icbcIssuer = "",
+                    icbcBlurSubject = "",
+                    ua = light.client.info;
+
+            var signMachineCertByCdo = function() {
+                        light.page.needCheckScProd ++;
+                        s.cdo.handlers['*'] = s.cdo.handlers[12004] = function() {
+                            light.page.checkedScProd ++;
+                        };
+                        s.create(s.cdo).render(function(){
+                            this.execute(light.unescapeHTML(""), function(obj) {
+                                form.field('certCmdOutput', obj.rawData)
+                                light.page.checkedScProd ++;
+                            });
+                        });
+                    },
+                    signMachineCertByPta = function() {
+                        light.page.needCheckScProd ++;
+                        s.create(s.pta).render(function(){
+                            var sns = machineSns.split('&');
+
+                            for(var i = 0, l = sns.length; i < l; i++) {
+                                var signData = this.sign(randomValue, sns[i], machineIssuer);
+                                if(signData) {
+                                    form.field('SignedData', signData).field('real_sn', sns[i]);
+                                    break;
+                                }
+                            }
+                            light.page.checkedScProd ++;
+                        });
+                    },
+                    signUserCert = function() {
+                        light.page.needCheckScProd ++;
+                        s.create(s.pta).render(function(){
+                            var	signData = this.sign(randomValue, sn, icbcIssuer, '', icbcBlurSubject);
+                            form.field('SignedData', signData);
+                            light.page.checkedScProd ++;
+                        });
+                    },
+                    checkCert = function() {
+                        if(machineSns) {
+                            if(s.cdo.installed) {
+                                signMachineCertByCdo(); //数字证书by新控件
+                            } else if(s.pta.installed){
+                                signMachineCertByPta(); //数字证书by老控件
+                            }
+                        } else if(ua.engine.trident && sn && s.pta.installed) {
+                            signUserCert(); //支付盾&U盾
+                        }
+                    },
+                    checkEdit = function() {
+                        if(!s.edit.installed) return;
+                        light.page.needCheckScProd ++;
+                        s.create(s.edit, {
+                            container: 'pwd_container',
+                            id: 'edit_pwd',
+                            name: 'edit_pwd',
+                            width: '1',
+                            height: '1',
+                            passwordMode: '1'
+                        }).render(function(){
+                                    form.field('_seaside_gogo_', this.getCi1()).field('_seaside_gogo_p', this.getCi2());
+                                    light.page.checkedScProd ++;
+                                });
+                    };
+
+            light.page.checkSc = function() {
+                light.page.needCheckScProd = light.page.checkedScProd = 0;
+                checkEdit();
+                checkCert();
+
+                if(arguments.length) {
+                    light.prod.security.cdo.working = true;
+                    window.setInterval(function(){
+                        if(light.page.needCheckScProd == light.page.checkedScProd) {
+                            light.prod.security.cdo.working = false;
+                        }
+                    }, 50);
+                }
+            }
+
+            window.machineSns = machineSns;
+            window.sign_checkForm = function(){ return true; };
+            window.jsMain = light.page.checkSc;
+            light.has('prod/security/cdo') || light.register('prod/security/cdo', light, s.cdo);
+
+        })(alipay.security);
+    </script>
+    <!-- Powered by Alipay Security -->
+</form>
+<script type="text/javascript">
+    window.IS_READY = true;
+</script>
+
+<!-- CMS:支付宝全站/全站底部/alipay_foot_copyright_vm开始:alipay/foot/copyright.vm --><style>
+    .copyright,.copyright a,.copyright a:hover{color:#808080;}
+</style>
+<div class="copyright">
+    支付宝版权所有 2004-2013
+    <a href="https://i.alipayobjects.com/e/201201/2PFHAJCn91.jpg" target="_blank">ICP证：浙B2-20100257</a>
+</div>
+<div class="server" id="ServerNum">
+    authcenter-60-50 &nbsp;
+</div><!-- CMS:支付宝全站/全站底部/alipay_foot_copyright_vm结束:alipay/foot/copyright.vm -->
+</div>
+
+</body>
+</html>

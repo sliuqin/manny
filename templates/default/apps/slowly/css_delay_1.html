@@ -1,0 +1,16 @@
+{% extends 'layout/slowly.html' %}
+
+{% block style%}
+<link rel="stylesheet" href="{{ settings.uri.slowlyStaticServer }}1000/style.css"/>
+{% endblock %}
+{% block content %}
+
+<pre>
+{{ settings.uri.slowlyStaticServer }}1000/style.css
+</pre>
+
+
+<span>
+    css 一秒加载完，页面需要等待css加载完成之后才显示。
+</span>
+{% endblock %}
