@@ -4,7 +4,7 @@
 var PROTOCOL = 'http';
 var DOMAIN = 'peaches.io';
 exports.PROTOCOL = PROTOCOL;
-exports.STATIC_URL = 'http://static.peaches.io/';
+exports.STATIC_URL = 'http://static.manny.peaches.io/';
 exports.ROOT_URL = PROTOCOL + '://' + DOMAIN + '/';
 exports.DEFALUT_PORT = 8085;
 exports.DOMAIN = DOMAIN;
