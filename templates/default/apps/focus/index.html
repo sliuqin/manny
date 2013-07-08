@@ -61,12 +61,12 @@
                 }
 
 
-        function CreateTest() {
+        function Focus() {
             this._init()
             
         }
 
-        CreateTest.prototype = {
+        Focus.prototype = {
             _init: function () {
                 var self = this;
                 this.Show(config.urlBox.value);
@@ -159,7 +159,7 @@
                 if(showType == 'Mac'){
                     this.ChangeMacSize(config.macSizeNavCls)
                 }
-                this.Show()
+                this.Show(config.urlBox.value)
             },
             ChangeUrl: function (elCls, url) {
                 S.each(elCls, function (item) {
@@ -181,13 +181,10 @@
                     D.replaceClass(box, nowCls, 'mac-box j_showBox Mac' + clickSize)
 
                 })
-            },
-            CreateTemplate: function (type) {
-
             }
         }
 
-        var test = new CreateTest()
+        var test = new Focus()
     })()
 
 </script>
