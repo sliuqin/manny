@@ -133,29 +133,32 @@
                 })
 
             },
-            ChooseType: function () {
-                var showType = '', tar = '', self = this
-                E.on('.j_type', 'click', function (e) {
+            ChooseType : function(){
+                var tar ='',self = this
+                E.on('.j_type','click',function(e){
                     tar = e.target;
-                    if (tar.checked == true) {
-                        D.removeClass('.type', 'select')
-                        D.addClass(D.parent(tar), 'select');
-                        D.addClass('.j_showBox', 'hidden')
-
-                        showType = tar.value;
-                        var curShowBox = D.get('#J_' + showType);
-                        if (D.attr(curShowBox, 'data-init') != 'init') {
-                            curShowBox.innerHTML = config[showType];
-                            D.attr(curShowBox, 'data-init', 'init')
-                        }
-                        var iframe = D.query('iframe', curShowBox)
-                        D.removeClass(curShowBox, 'hidden')
-                        if (showType == 'Mac') {
-                            self.ChangeMacSize(config.macSizeNavCls)
-                        }
-                        self.Show(config.urlBox.value)
+                    if(tar.checked == true){
+                        self.ShowType(tar)
                     }
                 })
+            },
+            ShowType:function(tar){
+                D.removeClass('.type','select')
+                D.addClass(D.parent(tar),'select');
+                D.addClass('.j_showBox','hidden')
+    
+                var showType = tar.value;
+                var curShowBox = D.get('#J_'+showType);
+                if(D.attr(curShowBox,'data-init') != 'init'){  //data-init 控制内容是否已经生成
+                    curShowBox.innerHTML =config[showType];
+                    D.attr(curShowBox,'data-init','init')
+                }
+                var iframe = D.query('iframe',curShowBox)
+                D.removeClass(curShowBox,'hidden')
+                if(showType == 'Mac'){
+                    this.ChangeMacSize(config.macSizeNavCls)
+                }
+                this.Show()
             },
             ChangeUrl: function (elCls, url) {
                 S.each(elCls, function (item) {
