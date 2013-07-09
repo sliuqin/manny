@@ -35,18 +35,20 @@ body {
 
 .logo {
     float: left;
-    width: 150px;
+    width: 170px;
     text-align: center;
     color: #fff;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
-    font-size: 18px !important;
-    line-height: 32px !important;
-    letter-spacing: 2px;
-    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size:  20px !important;
+    line-height: 40px !important;
+    font-family: "lato","Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-style: italic;
+    letter-spacing: 1px;
 }
 
 .head {
     width: 100%;
+    min-width:1000px;
     position: fixed;
     top: 0;
     z-index: 11;
@@ -60,20 +62,20 @@ body {
 }
 
 .head-wrap {
-    height: 30px;
     overflow: hidden;
-    padding: 10px 0;
+    padding: 5px 0;
 }
 
 .inp-text {
     float: left;
-    height: 28px;
-    width: 420px;
-    line-height: 28px;
+    height: 38px;
+    width: 70%;
+    line-height: 38px;
     text-indent: 2px;
-    margin: 0 20px 0 200px;
+    margin: 0 5px 0 0;
     color: #333;
     font-size: 14px;
+    border:0;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
 }
 
@@ -83,7 +85,9 @@ body {
 
 .inp-btn {
     float: left;
-    padding: 6px 20px 7px;
+    padding: 0 20px;
+    height:38px;
+    line-height: 38px;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.32);
     color: #fff;
     font-size: 14px;
@@ -113,6 +117,7 @@ body {
     position: fixed;
     left: 0;
     top: 0;
+    z-index:5;
     width: 160px;
     height: 100%;
     padding-right: 10px;
@@ -133,7 +138,7 @@ body {
 .side-nav {
     position: absolute;
     right: 0;
-    top: 400px;
+    top: 220px;
     background-color: #8485ce;
     color: #484984;
     height: 85px;
@@ -150,7 +155,7 @@ body {
 }
 
 .side-nav:hover {
-    top: 395px;
+    top: 215px;
     padding: 5px 0;
 }
 
@@ -166,7 +171,7 @@ body {
 
 .type-box {
     z-index: 10;
-    padding-top:20px;
+    padding: 20px 0 0;
     text-align: center;
 }
 
@@ -320,7 +325,6 @@ body {
 }
 
 .mac-box .item {
-    /* �0�6���0�3�0�415�0�8�0�6�݄0�4�0�1�0�2 */
     height: 568px;
     width: 948px;
     background: url(http://img03.taobaocdn.com/tps/i3/T1U.tkFkFbXXckxCEg-948-568.jpg) no-repeat;
