@@ -70,6 +70,7 @@
             _init: function () {
                 var self = this;
                 this.Show(config.urlBox.value);
+                this.initType() // url控制设备类型
                 E.on(config.urlForm,'submit',function(e){
                     e.stopPropagation();
                     self.Show(config.urlBox.value);
@@ -79,6 +80,13 @@
                 this.ChooseType(config.type);
                 this.SideBar();
 
+            },
+            initType: function(){
+                var qs = S.unparam(location.href.indexOf('?') > -1 ? location.href.split('?')[1] : '');
+                if (qs.type && D.get('.' + qs.type)) {
+                    var par = D.get('.' + qs.type)
+                    this.ShowType(D.get('input',par))
+                }
             },
             CreatQrCode: function (url) {
                 var qrBox = D.get('#J_QrCode')
