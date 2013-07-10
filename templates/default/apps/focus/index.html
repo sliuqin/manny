@@ -28,14 +28,14 @@
     <div class="pad-box j_showBox hidden" id="J_Pad"></div>
     <div class="mac-box j_showBox Mac15 hidden" id="J_Mac"></div>
 </div>
-<div class="sidebar" id="J_SideBar">
+<div class="sidebar sidebar-close" id="J_SideBar">
     <form action="#" method="get" class="type-box" id="J_Type">
         <label class="type phone"><input class="inp-check j_type" type="radio"name="type" value="Phone" />Phone</label>
         <label class="type pad"><input class="inp-check j_type" type="radio" name="type" value="Pad" />Pad</label>
         <label class="type mac"><input class="inp-check j_type" type="radio" name="type" value="Mac" />Mac</label>
     </form>
     <div class="qrcode" id="J_QrCode"></div>
-    <b class="side-nav" id="J_SideNav">&lt;</b>
+    <b class="side-nav" id="J_SideNav">&gt;</b>
 </div>
 <script>
     (function () {
@@ -83,6 +83,19 @@
 
             },
             initType: function(){
+                if(window.localStorage.getItem("state") == 'open'){
+                    D.css(config.sideBar,{
+                        '-webkit-transition':'none',
+                        '-moz-transition': "none",
+                        '-ms-transition':"none",
+                        'transition':"none"
+                    })
+                    D.removeClass(config.sideBar,'sidebar-close')
+                    config.sideNav.innerHTML = '&lt;'
+                }else if(window.localStorage.getItem("state") == 'close'){
+                    D.addClass(config.sideBar,'sidebar-close')
+                    config.sideNav.innerHTML = '&gt;'
+                }
                 var qs = S.unparam(location.href.indexOf('?') > -1 ? location.href.split('?')[1] : '');
                 if(qs && qs.type){
                     var type = qs.type //生成的连接后面默认待个'#'
@@ -136,17 +149,29 @@
                 })
             },
             SideBar: function(){
-                setTimeout(function(){
-                    D.addClass(config.sideBar,'sidebar-close')
-                    config.sideNav.innerHTML = '&gt;'
-                },3000)
+                if(window.localStorage.show != 'initOpen'){
+                    setTimeout(function(){
+                        D.removeClass(config.sideBar,'sidebar-close')
+                        config.sideNav.innerHTML = '&lt;' 
+                    },1000)
+                    window.localStorage.show = 'initOpen'
+                }
                 E.on(config.sideNav,'click tap',function(){
+                    D.css(config.sideBar,{
+                        '-webkit-transition':'all .3s ease-out',
+                        '-moz-transition': "all .3s ease-out",
+                        '-ms-transition':"all .3s ease-out",
+                        'transition':"all .3s ease-out"
+                    })
                     if(D.hasClass(config.sideBar,'sidebar-close')){
                         D.removeClass(config.sideBar,'sidebar-close')
                         config.sideNav.innerHTML = '&lt;'
+                        window.localStorage.state = 'open'
+                        
                     } else{
                         D.addClass(config.sideBar,'sidebar-close')
                         config.sideNav.innerHTML = '&gt;'
+                        window.localStorage.state = 'close'
                     }
                 })
 
