@@ -35,6 +35,7 @@ exports.install = function (server, manage) {
             res.locals.proxy_url = '/focus/proxy/';
         }
         res.locals.url = req.query.url || '';
+        res.locals.type = req.query.type || 'phone';
         next();
     }, function (req, res, next) {
         res.render('apps/focus/index.html')

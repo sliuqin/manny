@@ -16,6 +16,7 @@
                    name="url" value="{{url}}"
                    autocomplete="autocomplete" autofocus="autofocus"/>
             <input type="submit" id="J_Sub" class="inp-btn" value="Go"/>
+            <input type="hidden" name="type" id="J_UrlType" value="phone" />
         </form>
     </div>
 </div>
@@ -28,11 +29,11 @@
     <div class="mac-box j_showBox Mac15 hidden" id="J_Mac"></div>
 </div>
 <div class="sidebar" id="J_SideBar">
-    <div class="type-box" id="J_Type">
-        <label class="type phone select"><input class="inp-check j_type" type="radio"name="type" value="Phone" checked="checked" />Phone</label>
+    <form action="#" method="get" class="type-box" id="J_Type">
+        <label class="type phone"><input class="inp-check j_type" type="radio"name="type" value="Phone" />Phone</label>
         <label class="type pad"><input class="inp-check j_type" type="radio" name="type" value="Pad" />Pad</label>
         <label class="type mac"><input class="inp-check j_type" type="radio" name="type" value="Mac" />Mac</label>
-    </div>
+    </form>
     <div class="qrcode" id="J_QrCode"></div>
     <b class="side-nav" id="J_SideNav">&lt;</b>
 </div>
@@ -63,7 +64,7 @@
 
         function Focus() {
             this._init()
-            
+
         }
 
         Focus.prototype = {
@@ -83,9 +84,16 @@
             },
             initType: function(){
                 var qs = S.unparam(location.href.indexOf('?') > -1 ? location.href.split('?')[1] : '');
-                if (qs.type && D.get('.' + qs.type)) {
-                    var par = D.get('.' + qs.type)
-                    this.ShowType(D.get('input',par))
+                if(qs && qs.type){
+                    var type = qs.type //生成的连接后面默认待个'#'
+                    type = type.indexOf('#') > -1 ? type.split('#')[0] : type
+                    if (type && D.get('.' + type)) {
+                        var par = D.get('.' + type)
+                        this.ShowType(D.get('input',par))
+                    }
+                }
+                else{
+                    this.ShowType(D.get('input','label.phone'))
                 }
             },
             CreatQrCode: function (url) {
@@ -95,15 +103,16 @@
                 if (D.attr(qrBox, 'data-init') != 'init') {
                     qrBox.innerHTML = '<img id="J_ArCodeImg" src="' + qrimgSrc + '" width="120" height="120" />'
                     D.attr(qrBox, 'data-init', 'init') ////data-init 控制内容是否已经生成
-                    
+
                 } else {
                     D.get('#J_ArCodeImg').src = qrimgSrc
                 }
 
             },
             Show: function (url) {
-                var emulateUrl = '{{proxy_url}}iphone/';
+                var emulateUrl = 'http://focus.peaches.io/proxy/iphone/';
                 var showUrl = ''
+                
                 if (url === '') return;
                 showUrl = (url.indexOf('http://') < 0 ? 'http://' : '') + url;
                 var box = D.query('.j_showBox'), self = this
@@ -155,7 +164,7 @@
                 D.removeClass('.type','select')
                 D.addClass(D.parent(tar),'select');
                 D.addClass('.j_showBox','hidden')
-    
+
                 var showType = tar.value;
                 var curShowBox = D.get('#J_'+showType);
                 if(D.attr(curShowBox,'data-init') != 'init'){  //data-init 控制内容是否已经生成
@@ -167,7 +176,8 @@
                 if(showType == 'Mac'){
                     this.ChangeMacSize(config.macSizeNavCls)
                 }
-                this.Show(config.urlBox.value)
+                D.get('#J_UrlType').value = showType.toLowerCase()  // J_UrlType 隐藏域控制类型
+                this.Show(config.urlBox.value)  
             },
             ChangeUrl: function (elCls, url) {
                 S.each(elCls, function (item) {
